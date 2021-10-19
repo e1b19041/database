@@ -23,4 +23,7 @@ public interface ChamberMapper {
   @Options(useGeneratedKeys = true, keyColumn = "id", keyProperty = "id")
   void insertChamber(Chamber chamber);
 
+  @Insert("INSERT INTO userinfo (user,height) VALUES (#{user},#{height});")
+  void insertUserInfo(UserInfo userinfo);
+
 }
