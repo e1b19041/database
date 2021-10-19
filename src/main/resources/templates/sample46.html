@@ -10,6 +10,16 @@
   <h1>Authorized! <span sec:authentication="name"></span>
   </h1>
   <a href="/logout">ログアウト</a>
+
+  <a href="/sample4/step7">身長が登録されているユーザ一覧</a>
+  <div th:each="chamberUser,stat:${chamberUsers7}">
+    <tr>
+      <td>Index:[[${stat.index}]]</td>
+      <td>ユーザ名:[[${chamberUser.user}]]</td>
+      <td>小屋番号:[[${chamberUser.number}]]</td>
+      <td>身長:[[${chamberUser.height}]]</td>
+    </tr>
+  </div>
 </body>
 
 </html>

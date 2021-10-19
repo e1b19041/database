@@ -16,6 +16,9 @@ public interface ChamberMapper {
   @Select("SELECT * from chamber where number = #{number}")
   ArrayList<Chamber> selectAllByNumber(int number);
 
+  @Select("select CHAMBER.USER,CHAMBER.NUMBER,USERINFO.HEIGHT from CHAMBER JOIN USERINFO ON CHAMBER.USER=USERINFO.USER;")
+  ArrayList<ChamberUser> selectAllChamberUser();
+
   @Insert("INSERT INTO chamber (user,number) VALUES (#{user},#{number});")
   @Options(useGeneratedKeys = true, keyColumn = "id", keyProperty = "id")
   void insertChamber(Chamber chamber);
