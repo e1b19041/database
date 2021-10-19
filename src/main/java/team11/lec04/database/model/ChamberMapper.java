@@ -13,4 +13,8 @@ public interface ChamberMapper {
   @Select("SELECT id,user,number from chamber where id = #{id}")
   Chamber selectById(int id);
 
+  @Insert("INSERT INTO chamber (user,number) VALUES (#{user},#{number});")
+  @Options(useGeneratedKeys = true, keyColumn = "id", keyProperty = "id")
+  void insertChamber(Chamber chamber);
+
 }
