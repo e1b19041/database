@@ -1,5 +1,6 @@
 package team11.lec04.database.controller;
 
+import java.util.ArrayList;
 import java.security.Principal;
 
 import org.springframework.stereotype.Controller;
@@ -56,5 +57,12 @@ public class Sample41Controller {
     model.addAttribute("chamber3", chamber3);
     // System.out.println("ID:" + chamber3.getId());
     return "sample41.html";
+  }
+
+  @PostMapping("step5")
+  public String sample45(@RequestParam Integer number, ModelMap model) {
+    ArrayList<Chamber> chambers5 = chamberMapper.selectAllByNumber(number);
+    model.addAttribute("chambers5", chambers5);
+    return "sample44.html";
   }
 }
